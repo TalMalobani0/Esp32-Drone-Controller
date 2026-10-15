@@ -25,7 +25,7 @@ void setup() {
   initMotors();
   initWiFi();
 
-  Serial.println("System Ready for Flight!");
+  Serial.println("");
 }
 
 float smoothedThrottle = 0.0;
