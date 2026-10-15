@@ -100,7 +100,9 @@ void initMPU() {
 }
 
 void initMotors() {
-    for (int i = 0; i < 4; i++) {
+  const int freq = 20000;
+  const int 
+  for (int i = 0; i < 4; i++) {
     ledcAttach(motorPins[i], 20000, 8); 
   }
 }
