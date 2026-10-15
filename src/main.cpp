@@ -9,7 +9,7 @@ const int motorPins[] = {1, 2, 3, 4};
 Adafruit_MPU6050 mpu;
 WiFiUDP udp;
 uint8_t packetBuffer[4] = {0, 0, 0, 0}; // [0]=Throttle, [1]=Pitch, [2]=Roll, [3]=Yaw
-byte motorValues[4] = {0, 0, 0, 0}; 
+byte motorValues[4] = {0, 0, 0, 0};
 
 int clamp(float val);
 void initMPU();
