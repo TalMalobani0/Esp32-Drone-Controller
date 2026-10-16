@@ -105,6 +105,7 @@ void initMotors() {
 }
 
 void initWiFi() {
+  WiFi.mode(WIFI_AP);
   WiFi.softAP("Tal's Drone", "");
   udp.begin(5050);
 }
