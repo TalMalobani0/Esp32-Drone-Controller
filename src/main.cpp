@@ -57,10 +57,10 @@ void loop() {
   else {
     smoothedThrottle += (userThrottle - smoothedThrottle) * 0.15;
 
-    motorValues[0] = clamp(smoothedThrottle - pitchTotal + rollTotal); // Front Left
-    motorValues[1] = clamp(smoothedThrottle - pitchTotal - rollTotal); // Front Right
-    motorValues[2] = clamp(smoothedThrottle + pitchTotal + rollTotal); // Back Left
-    motorValues[3] = clamp(smoothedThrottle + pitchTotal - rollTotal); // Back Right
+    motorValues[0] = clamp(smoothedThrottle - pitchCorrection + rollCorrection); // Front Left
+    motorValues[1] = clamp(smoothedThrottle - pitchCorrection - rollCorrection); // Front Right
+    motorValues[2] = clamp(smoothedThrottle + pitchCorrection + rollCorrection); // Back Left
+    motorValues[3] = clamp(smoothedThrottle + pitchCorrection - rollCorrection); // Back Right
 
     for (int i = 0; i < 4; i++) {
       ledcWrite(motorPins[i], motorValues[i]);
