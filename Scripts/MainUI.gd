@@ -14,19 +14,17 @@ func _ready() -> void:
 	udp.connect_to_host("192.168.4.1", 5050)
 
 func _process(_delta: float) -> void:
-	# 1. Get Inputs (Converted to 0-255 range for the ESP32)
 	var move = left_joy.get_value()
 	var alt = right_joy.get_value()
 	
 	# Mapping joystick (-1.0 to 1.0) to byte (0 to 255)
-	# Throttle is usually 0-255, others are centered at 128
 	var throttle = int(clamp(((-alt.y) + 1.0) / 2.0 * 255, 0, 255))
 	var roll     = int(clamp((move.x + 1.0) / 2.0 * 255, 0, 255))
 	var pitch    = int(clamp(((-move.y) + 1.0) / 2.0 * 255, 0, 255))
 	var yaw      = int(clamp((alt.x + 1.0) / 2.0 * 255, 0, 255))
 
 	# 2. Check Activation States
-	var current_send_data = [0, 128, 128, 128] # Default: Motors off/level
+	var current_send_data = [0, 128, 128, 128]
 	
 	var is_stopped = stop_motors_button.getButtonState()
 	var is_taking_off = takeoff_button.getButtonState()
@@ -46,9 +44,7 @@ func _process(_delta: float) -> void:
 		previous_data = current_send_data
 
 func send_to_drone(data_array: Array) -> void:
-	var packet = PackedByteArray()
-	for val in data_array:
-		packet.append(val)
+	var packet = PackedByteArray(data_array)
 	
 	if udp.get_packet_error() == OK:
 		udp.put_packet(packet)

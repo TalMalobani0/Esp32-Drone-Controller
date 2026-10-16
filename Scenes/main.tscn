@@ -51,9 +51,9 @@ text = "Height"
 horizontal_alignment = 1
 
 [node name="MotorValues text" type="Label" parent="Labels" unique_id=1938348919]
-offset_left = 250.0
+offset_left = 249.0
 offset_top = 300.0
-offset_right = 830.0
+offset_right = 829.0
 offset_bottom = 369.00015
 theme_override_font_sizes/font_size = 50
 horizontal_alignment = 1
