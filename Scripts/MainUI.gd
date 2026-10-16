@@ -35,7 +35,7 @@ func _process(_delta: float) -> void:
 		else:
 			current_send_data = [40, 128, 128, 128] # Idle spin
 
-	# 3. Only send if data changed
+	# only send if data changed
 	if current_send_data != previous_data:
 		if is_first_run:
 			is_first_run = false
