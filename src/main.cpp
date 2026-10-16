@@ -89,7 +89,7 @@ void loop() {
   #pragma endregion
 }
 
-#pragma region functions
+#pragma functions
 void initMPU() {
   mpu.begin();
   mpu.setAccelerometerRange(MPU6050_RANGE_4_G);
