@@ -98,7 +98,7 @@ void initMPU() {
 
 void initMotors() {
   const int freq = 20000;
-  const int resolution = 8
+  const int resolution = 8;
   for (int i = 0; i < 4; i++) {
     ledcAttach(motorPins[i], freq, resolution); 
   }
