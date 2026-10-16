@@ -46,7 +46,7 @@ void loop() {
   float pitchCorrection = (g.gyro.y * 20.0) + userPitch;
   float rollCorrection  = (g.gyro.x * 20.0) + userRoll;
 
-  #pragma region write motor values
+  #pragma write motor values
   if (userThrottle < 10) {
     smoothedThrottle = 0.0;
     for (int i = 0; i < 4; i++) {
