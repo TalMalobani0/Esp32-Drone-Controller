@@ -43,11 +43,8 @@ void loop() {
   sensors_event_t a, g, temp;
   mpu.getEvent(&a, &g, &temp);
 
-  float stabilityRoll  = -a.acceleration.y * 10.0; 
-  float stabilityPitch = a.acceleration.x * 10.0;
-
-  float rollTotal  = stabilityRoll + userRoll;
-  float pitchTotal = stabilityPitch + userPitch;
+  float pitchCorrection = (g.gyro.y * 20.0) + userPitch;
+  float rollCorrection  = (g.gyro.x * 20.0) + userRoll;
 
   #pragma region write motor values
   if (userThrottle < 10) {
