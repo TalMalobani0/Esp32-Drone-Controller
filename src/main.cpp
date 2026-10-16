@@ -37,7 +37,7 @@ void loop() {
   }
 
   float userThrottle = packetBuffer[0];
-  float userPitch    = (packetBuffer[1] - 128) / 12.8; 
+  float userPitch    = (packetBuffer[1] - 128) / 12.8; // add / sub 10 to the motor value
   float userRoll     = (packetBuffer[2] - 128) / 12.8;
 
   sensors_event_t a, g, temp;
