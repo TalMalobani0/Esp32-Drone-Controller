@@ -86,11 +86,7 @@ void initMotors() {
 }
 
 void writeMotor(int motor, int value) {
-#if ESP_ARDUINO_VERSION_MAJOR >= 3
   ledcWrite(motorPins[motor], value);
-#else
-  ledcWrite(motor, value);
-#endif
 }
 
 void initWiFi() {
