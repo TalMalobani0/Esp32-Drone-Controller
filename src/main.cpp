@@ -22,6 +22,8 @@ void setup() {
   Serial.begin(115200);
   Wire.begin();
   delay(500);
+  Serial.println("Starting");
+
 
   initMPU();
   initMotors();
@@ -33,7 +35,7 @@ void setup() {
 float smoothedThrottle = 0.0;
 
 void loop() {
-  Serial.println("hello");
+
   int packetSize = udp.parsePacket();
   if (packetSize > 0) {
       udp.read(packetBuffer, 4);
