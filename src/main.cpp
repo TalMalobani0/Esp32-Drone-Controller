@@ -20,7 +20,7 @@ void writeMotor(int motor, int value);
 
 void setup() {
   Serial.begin(115200);
-  Wire.begin(6, 7);
+  Wire.begin();
   delay(500);
 
   initMPU();
