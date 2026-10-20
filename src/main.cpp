@@ -1,3 +1,4 @@
+#include <Arduino.h>
 #include <WiFi.h>
 #include <WiFiUdp.h>
 #include <Adafruit_MPU6050.h>
@@ -15,6 +16,7 @@ int clamp(float val);
 void initMPU();
 void initMotors();
 void initWiFi();
+void writeMotor(int motor, int value);
 
 void setup() {
   Serial.begin(115200);
@@ -32,7 +34,6 @@ void setup() {
 float smoothedThrottle = 0.0;
 
 void loop() {
-  Serial.println("hello");
   int packetSize = udp.parsePacket();
   if (packetSize > 0) {
       udp.read(packetBuffer, 4);
@@ -48,12 +49,11 @@ void loop() {
   float pitchCorrection = (g.gyro.y * 10.0) + userPitch;
   float rollCorrection  = (g.gyro.x * 10.0) + userRoll;
 
-  #pragma write motor values
   if (userThrottle < 10) {
     smoothedThrottle = 0.0;
     for (int i = 0; i < 4; i++) {
       motorValues[i] = 0;
-      ledcWrite(motorPins[i], 0);
+      writeMotor(i, 0);
     }
   } 
   else {
@@ -65,33 +65,11 @@ void loop() {
     motorValues[3] = clamp(smoothedThrottle + pitchCorrection - rollCorrection); // Back Right
 
     for (int i = 0; i < 4; i++) {
-      ledcWrite(motorPins[i], motorValues[i]);
+      writeMotor(i, motorValues[i]);
     }
   }
-  #pragma endregion
-
-  #pragma Print to serial
-  // static unsigned long lastPrint = 0;
-  // if (millis() - lastPrint > 100) { 
-  //     Serial.print("Raw throttle: ");
-  //     Serial.print(packetBuffer[0]);
-  //     Serial.print(" | Smoothed throttle: ");
-  //     Serial.print(smoothedThrottle, 1);
-  //     Serial.print(" | M1: ");
-  //     Serial.print(motorValues[0]);
-  //     Serial.print(" M2: ");
-  //     Serial.print(motorValues[1]);
-  //     Serial.print(" M3: ");
-  //     Serial.print(motorValues[2]);
-  //     Serial.print(" M4: ");
-  //     Serial.println(motorValues[3]);
-
-  //     lastPrint = millis();
-  // }
-  #pragma endregion
 }
 
-#pragma functions
 void initMPU() {
   mpu.begin();
   mpu.setAccelerometerRange(MPU6050_RANGE_4_G);
@@ -102,8 +80,20 @@ void initMotors() {
   const int freq = 20000;
   const int resolution = 8;
   for (int i = 0; i < 4; i++) {
-    ledcAttach(motorPins[i], freq, resolution); 
+    ledcAttach(motorPins[i], freq, resolution);
+#else
+    ledcSetup(i, freq, resolution);
+    ledcAttachPin(motorPins[i], i);
+#endif
   }
+}
+
+void writeMotor(int motor, int value) {
+#if ESP_ARDUINO_VERSION_MAJOR >= 3
+  ledcWrite(motorPins[motor], value);
+#else
+  ledcWrite(motor, value);
+#endif
 }
 
 void initWiFi() {
@@ -116,4 +106,3 @@ int clamp(float val) {
   if (val < 25) return 0;
   return (int)val;
 }
-#pragma endregion
