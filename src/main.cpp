@@ -1,4 +1,3 @@
-#include <Arduino.h>
 #include <WiFi.h>
 #include <WiFiUdp.h>
 #include <Adafruit_MPU6050.h>

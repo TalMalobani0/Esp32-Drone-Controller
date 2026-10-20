@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "name": "PlatformIO",
+            "includePath": [
+                "${workspaceFolder}/include",
+                "${workspaceFolder}/src",
+                "C:/Users/User/.platformio/packages/framework-arduinoespressif32/cores/esp32"
+            ],
+            "configurationProvider": "platformio.platformio-ide"
+        }
+    ],
+    "version": 4
+}
