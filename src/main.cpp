@@ -22,7 +22,6 @@ void setup() {
   Serial.begin(115200);
   Wire.begin(6, 7);
   delay(500);
-  Serial.println("starting");
 
   initMPU();
   initMotors();
