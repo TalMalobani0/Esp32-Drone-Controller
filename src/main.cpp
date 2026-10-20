@@ -31,6 +31,7 @@ void setup() {
 float smoothedThrottle = 0.0;
 
 void loop() {
+  Serial.print("hello");
   int packetSize = udp.parsePacket();
   if (packetSize > 0) {
       udp.read(packetBuffer, 4);
