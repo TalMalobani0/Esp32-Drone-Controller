@@ -50,7 +50,7 @@ void loop() {
   float pitchCorrection = (g.gyro.y * 10.0) + userPitch;
   float rollCorrection  = (g.gyro.x * 10.0) + userRoll;
 
-  if (userThrottle < 10) {
+  if (userThrottle < 15) {
     smoothedThrottle = 0.0;
     for (int i = 0; i < 4; i++) {
       motorValues[i] = 0;
