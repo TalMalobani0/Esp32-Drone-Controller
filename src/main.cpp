@@ -81,10 +81,6 @@ void initMotors() {
   const int resolution = 8;
   for (int i = 0; i < 4; i++) {
     ledcAttach(motorPins[i], freq, resolution);
-#else
-    ledcSetup(i, freq, resolution);
-    ledcAttachPin(motorPins[i], i);
-#endif
   }
 }
 
