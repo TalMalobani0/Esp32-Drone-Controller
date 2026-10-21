@@ -94,6 +94,7 @@ void loop() {
 
 }
 
+#pragma region functions
 void initMPU() {
   mpu.begin();
   mpu.setAccelerometerRange(MPU6050_RANGE_4_G);
@@ -122,3 +123,4 @@ int clamp(float val) {
   if (val < 25) return 0;
   return (int)val;
 }
+#pragma endregion
