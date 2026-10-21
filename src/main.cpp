@@ -69,6 +69,29 @@ void loop() {
       writeMotor(i, motorValues[i]);
     }
   }
+
+    #pragma endregion
+
+  #pragma region Print to serial
+  // static unsigned long lastPrint = 0;
+  // if (millis() - lastPrint > 100) { 
+  //     Serial.print("Raw throttle: ");
+  //     Serial.print(packetBuffer[0]);
+  //     Serial.print(" | Smoothed throttle: ");
+  //     Serial.print(smoothedThrottle, 1);
+  //     Serial.print(" | M1: ");
+  //     Serial.print(motorValues[0]);
+  //     Serial.print(" M2: ");
+  //     Serial.print(motorValues[1]);
+  //     Serial.print(" M3: ");
+  //     Serial.print(motorValues[2]);
+  //     Serial.print(" M4: ");
+  //     Serial.println(motorValues[3]);
+
+  //     lastPrint = millis();
+  // }
+  #pragma endregion
+
 }
 
 void initMPU() {
