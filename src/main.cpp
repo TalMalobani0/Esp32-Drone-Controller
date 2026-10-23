@@ -5,7 +5,7 @@
 #include <Adafruit_Sensor.h>
 #include <Wire.h>
 
-const int motorPins[] = {1, 2, 3, 4};
+const int motorPins[] = {2, 3, 4, 5};
 
 Adafruit_MPU6050 mpu;
 WiFiUDP udp;
