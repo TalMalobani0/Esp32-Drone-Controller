@@ -34,7 +34,6 @@ void setup() {
   initMotors();
   initWiFi();
 
-
   Serial.println("System ready for flight");
 }
 
