@@ -29,6 +29,7 @@ void setup() {
   initMotors();
   initWiFi();
 
+  WRITE_PERI_REG(RTC_CNTL_BROWN_OUT_REG, 0);
   Serial.println("System ready for flight");
 }
 
