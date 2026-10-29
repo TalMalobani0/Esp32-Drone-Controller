@@ -8,7 +8,6 @@
 #include "soc/soc.h"
 #include "soc/rtc_cntl_reg.h"
 
-// const int motorPins[] = {2, 3, 4, 5};
 const int motorPins[] = {2, 3, 4, 5};
 
 Adafruit_MPU6050 mpu;
