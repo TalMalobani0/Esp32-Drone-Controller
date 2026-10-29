@@ -9,7 +9,7 @@
 #include "soc/rtc_cntl_reg.h"
 
 // const int motorPins[] = {2, 3, 4, 5};
-const int motorPins[] = {20, 20, 4, 5};
+const int motorPins[] = {2, 3, 4, 20};
 
 Adafruit_MPU6050 mpu;
 WiFiUDP udp;
