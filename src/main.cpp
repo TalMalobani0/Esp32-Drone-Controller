@@ -71,7 +71,7 @@ void loop() {
       writeMotor(i, motorValues[i]);
     }
   }
-
+  ledcWrite(5, 0);
     #pragma endregion
 
   #pragma region Print to serial
