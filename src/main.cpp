@@ -45,7 +45,7 @@ void loop() {
   sensors_event_t a, g, temp;
   mpu.getEvent(&a, &g, &temp);
 
-  float pitchCorrection = (g.gyro.y * 10.0) + userPitch;
+  float pitchCorrection = (g.gyro.y * -10.0) + userPitch; # -10 instead of 10 because the mpu6050 is rotated 180 degrees
   float rollCorrection  = (g.gyro.x * 10.0) + userRoll;
 
   if (userThrottle < 15) {
