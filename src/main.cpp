@@ -76,8 +76,6 @@ void loop() {
     }
   }
 
-  #pragma endregion
-
   #pragma region Print to serial
   // static unsigned long lastPrint = 0;
   // if (millis() - lastPrint > 100) { 
@@ -97,7 +95,6 @@ void loop() {
   //     lastPrint = millis();
   // }
   #pragma endregion
-
 }
 
 #pragma region functions
