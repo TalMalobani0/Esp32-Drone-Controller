@@ -14,7 +14,7 @@ class Motor {
             currentSpeed = 0;
         }
 
-        void attach(uint16_t freq = 20000, uint8_t resolution = 8) {
+        void attach(uint16_t freq, uint8_t resolution) {
             ledcAttach(pin, freq, resolution);
             write(0);
         }
