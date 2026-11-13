@@ -60,7 +60,7 @@ void loop() {
     smoothedThrottle = 0.0;
     for (int i = 0; i < 4; i++) {
       motorValues[i] = 0;
-      writeMotor(i, 0);
+      motors[i].write(0);
     }
   } 
   else {
