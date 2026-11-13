@@ -14,7 +14,7 @@ Motor motors[4] = {
   Motor(motorPins[1]),
   Motor(motorPins[2]),
   Motor(motorPins[3])
-}
+};
 
 Adafruit_MPU6050 mpu;
 WiFiUDP udp;
