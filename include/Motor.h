@@ -20,7 +20,7 @@ class Motor {
         }
 
         void write(int speed) {
-            currentSpeed = constrain(speed, 0, 255);
+            currentSpeed = constrain(speed, 25, 255);
             ledcWrite(pin, currentSpeed);
         }
 
