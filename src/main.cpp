@@ -112,10 +112,6 @@ void initMotors() {
   }
 }
 
-void writeMotor(int motor, int value) {
-  ledcWrite(motorPins[motor], value);
-}
-
 void initWiFi() {
   WiFi.softAP("Tal's Drone", "");
   udp.begin(5050);
