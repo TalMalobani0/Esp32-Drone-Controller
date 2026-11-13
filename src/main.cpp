@@ -25,7 +25,6 @@ int clamp(float val);
 void initMPU();
 void initMotors();
 void initWiFi();
-void writeMotor(int motor, int value);
 
 void setup() {
   Serial.begin(115200);
