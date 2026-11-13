@@ -5,6 +5,8 @@
 #include <Adafruit_Sensor.h>
 #include <Wire.h>
 
+#include "Motor.h"
+
 const int motorPins[] = {2, 3, 4, 5};
 
 Adafruit_MPU6050 mpu;
