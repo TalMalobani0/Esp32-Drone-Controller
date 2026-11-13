@@ -72,7 +72,7 @@ void loop() {
     motorValues[3] = clamp(smoothedThrottle + pitchCorrection - rollCorrection); // Back Right
 
     for (int i = 0; i < 4; i++) {
-      writeMotor(i, motorValues[i]);
+      motors[i].write(motorValues[i]);
     }
   }
 
