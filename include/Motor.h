@@ -10,7 +10,7 @@ private:
 
 public:
     Motor(uint8_t motorPin);
-    void attach(uin, uint16_t freq = 20000, uint8_t resolution = 8);
+    void attach(uint, uint16_t freq = 20000, uint8_t resolution = 8);
     void write(int speed);
     int getSpeed();
 };
