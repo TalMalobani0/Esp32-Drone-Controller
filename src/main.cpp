@@ -115,4 +115,14 @@ void initWiFi() {
   WiFi.softAP("Tal's Drone", "");
   udp.begin(5050);
 }
+
+int clamp(float val) {
+  if (val > 255) return 255;
+  if (val < 25) return 0;
+  return (int)val;
+}
 #pragma endregion
+
+class motor {
+  
+}
