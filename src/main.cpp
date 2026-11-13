@@ -9,6 +9,13 @@
 
 const int motorPins[] = {2, 3, 4, 5};
 
+Motor motros[4] = {
+  Motor(motorPins[0]),
+  Motor(motorPins[1]),
+  Motor(motorPins[2]),
+  Motor(motorPins[3])
+}
+
 Adafruit_MPU6050 mpu;
 WiFiUDP udp;
 uint8_t packetBuffer[] = {0, 128, 128, 128}; // [0]=Throttle, [1]=Pitch, [2]=Roll, [3]=Yaw
