@@ -14,13 +14,11 @@ public:
         currentSpeed = 0;
     }
 
-    // Attach method
     void attach(uint32_t freq = 20000, uint8_t resolution = 8) {
         ledcAttach(pin, freq, resolution);
         write(0);
     }
 
-    // Write method
     void write(int speed) {
         currentSpeed = constrain(speed, 0, 255);
         ledcWrite(pin, currentSpeed);
