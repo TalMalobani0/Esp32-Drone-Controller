@@ -9,7 +9,7 @@
 
 const int motorPins[] = {2, 3, 4, 5};
 
-Motor motros[4] = {
+Motor motors[4] = {
   Motor(motorPins[0]),
   Motor(motorPins[1]),
   Motor(motorPins[2]),
