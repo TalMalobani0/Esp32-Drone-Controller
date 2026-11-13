@@ -122,3 +122,7 @@ int clamp(float val) {
   return (int)val;
 }
 #pragma endregion
+
+class motor {
+  
+}
