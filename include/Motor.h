@@ -6,7 +6,7 @@
 class Motor {
 private:
     uint8_t pin;
-    int currentSpeed;
+    uint16_t currentSpeed;
 
 public:
     Motor(uint8_t motorPin) {
@@ -17,7 +17,7 @@ public:
     // Attach method
     void attach(uint32_t freq = 20000, uint8_t resolution = 8) {
         ledcAttach(pin, freq, resolution);
-        write(0); // Ensure it starts off
+        write(0);
     }
 
     // Write method
@@ -26,7 +26,6 @@ public:
         ledcWrite(pin, currentSpeed);
     }
 
-    // Get speed method
     int getSpeed() {
         return currentSpeed;
     }
