@@ -6,7 +6,7 @@
 class Motor {
     private:
         uint8_t pin;
-        uint16_t currentSpeed;
+        int currentSpeed;
 
     public:
         Motor(uint8_t motorPin) {
