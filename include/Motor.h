@@ -27,6 +27,6 @@ class Motor {
         int getSpeed() {
             return currentSpeed;
         }
-}
+};
 
 #endif
