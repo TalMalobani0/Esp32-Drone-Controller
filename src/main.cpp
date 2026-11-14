@@ -113,7 +113,7 @@ void initMotors() {
 }
 
 void initWiFi() {
-  WiFi.softAP("Tal's Drone", "");
+  WiFi.softAP("Tal's Drone", ""); // ip = 192.168.4.1
   udp.begin(5050);
 }
 
