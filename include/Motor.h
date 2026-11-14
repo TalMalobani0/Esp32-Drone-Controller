@@ -6,7 +6,7 @@
 class Motor {
     private:
         uint8_t pin;
-        int currentSpeed;
+        uint currentSpeed;
 
     public:
         Motor(uint8_t motorPin) {
@@ -19,7 +19,7 @@ class Motor {
             write(0);
         }
 
-        void write(int speed) {
+        void write(uint speed) {
             currentSpeed = constrain(speed, 0, 255);
             ledcWrite(pin, currentSpeed);
         }
