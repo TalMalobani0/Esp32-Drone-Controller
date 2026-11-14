@@ -7,9 +7,9 @@
 
 #include "Motor.h"
 
-const int motorPins[4] = {2, 3, 4, 5};
+const int motorPins[] = {2, 3, 4, 5};
 
-Motor motors[4] = {
+Motor motors[] = {
   Motor(motorPins[0]),
   Motor(motorPins[1]),
   Motor(motorPins[2]),
