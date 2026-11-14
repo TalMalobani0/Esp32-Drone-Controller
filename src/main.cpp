@@ -119,7 +119,7 @@ void initWiFi() {
 
 int clamp(float val) {
   if (val > 255) return 255;
-  if (val < 25) return 0;
+  if (val < 0) return 0;
   return (int)val;
 }
 #pragma endregion
